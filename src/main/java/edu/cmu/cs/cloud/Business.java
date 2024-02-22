@@ -31,10 +31,10 @@ import lombok.Data;
 public class Business {
 
     /**
-     * `address` varchar(140) not null.
+     * `neighborhood` varchar(140) default null.
      */
     @Column
-    private String address;
+    private String neighborhood;
     /**
      * `business_id` varchar(22) not null.
      * primary key (business_id)
@@ -43,48 +43,75 @@ public class Business {
     @Id
     private String business_id;
     /**
-     * `city` varchar(140) default null.
-     */
-    @Column
-    private String city;
-    /**
      * `hours` LONGTEXT default null.
      */
     @Column
     private String hours;
+    // `open` tinyint(1) not null,
     /**
-     * `latitude` varchar(12) not null.
+     * `open` tinyint(1) not null.
      */
     @Column
-    private String latitude;
+    private boolean open;
+
     /**
-     * `longitude` varchar(12) not null.
+     * `address` varchar(140) not null.
      */
     @Column
-    private String longitude;
+    private String address;
     /**
-     * `name` varchar(140) not null.
+     * `attributes` LONGTEXT default null.
      */
     @Column
-    private String name;
+    private String attributes;
     /**
-     * `postal_code` varchar(10) not null.
+     * `categories` LONGTEXT default null.
      */
     @Column
-    private String postal_code;
+    private String categories;
+
+
+    /**
+     * `city` varchar(140) default null.
+     */
+    @Column
+    private String city;
     /**
      * `review_count` int(10) default 0 not null.
      */
     @Column
     private int review_count;
     /**
-     * `stars` float(2,1) default 0.0 not null.
+     * `name` varchar(140) not null.
      */
     @Column
-    private float stars;
+    private String name;
+    /**
+     * `longitude` varchar(12) not null.
+     */
+    @Column
+    private String longitude;
     /**
      * `state` varchar(2) default null.
      */
     @Column
     private String state;
+    /**
+     * `stars` float(2,1) default 0.0 not null.
+     */
+    @Column
+    private float stars;
+    /**
+     * `latitude` varchar(12) not null.
+     */
+    @Column
+    private String latitude;
+    /**
+     * `postal_code` varchar(10) not null.
+     */
+    @Column
+    private String postal_code;
+
+
+
 }
