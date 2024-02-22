@@ -269,7 +269,7 @@ public class MySQLTasks {
                         FROM reviews r
                         JOIN tips t ON r.user_id = t.user_id
                         WHERE r.cool = (SELECT MAX(cool) FROM reviews)
-                        GROUP BY r.user_id;";  
+                        GROUP BY r.user_id";  
         executeDataManipulationQuery(sql);
     }
 
