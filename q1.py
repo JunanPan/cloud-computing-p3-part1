@@ -57,12 +57,14 @@
 
 # You can solve the problem by filling in the correct method or parameters
 
-# import MySQLdb
-# import pandas as pd
-# import sys
-#
-# conn = MySQLdb.connect(<params>) # build the MySQL connection
-# query = "<sql_query>" # the SQL query
-# df = pd.read_sql(query, con=conn)
-# df.<method>.to_csv(sys.stdout, encoding='utf-8', <params>)
-#
+import MySQLdb
+import pandas as pd
+import sys
+import os
+db_password = os.environ.get('DB_PASSWORD')
+# build the MySQL connection
+conn = MySQLdb.connect(host="localhost", user="clouduser", passwd=db_password, db="yelp_db")
+query = "SELECT review_count, stars FROM businesses"
+df = pd.read_sql(query, con=conn)
+
+df.describe().to_csv(sys.stdout, encoding='utf-8', float_format='%.2f')
