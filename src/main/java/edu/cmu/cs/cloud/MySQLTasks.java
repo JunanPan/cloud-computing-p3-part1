@@ -265,7 +265,11 @@ public class MySQLTasks {
      * You are only allowed to edit the sql.
      */
     private static void q6() {
-        String sql = "SELECT user_id FROM reviews WHERE cool = (SELECT MAX(cool) FROM reviews) AND user_id IN (SELECT user_id FROM tips)";  
+        String sql = "SELECT r.user_id 
+                        FROM reviews r
+                        JOIN tips t ON r.user_id = t.user_id
+                        WHERE r.cool = (SELECT MAX(cool) FROM reviews)
+                        GROUP BY r.user_id;";  
         executeDataManipulationQuery(sql);
     }
 
