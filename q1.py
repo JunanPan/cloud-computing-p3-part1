@@ -67,4 +67,4 @@ conn = MySQLdb.connect(host="localhost", user="clouduser", passwd=db_password, d
 query = "SELECT review_count, stars FROM businesses"
 df = pd.read_sql(query, con=conn)
 
-df.describe().to_csv(sys.stdout, encoding='utf-8', float_format='%.2f')
+df.describe().to_csv(sys.stdout, header=False, encoding='utf-8', float_format='%.2f')
