@@ -6,6 +6,12 @@
       "url":"<url>",
       "code":"<explain in which part of your code did you use the snippet or idea>",
       "description":"<additional information you may find necessary to provide>"
+    },
+    {
+      "title":"MySQLdb User’s Guide",
+      "url":"https://mysqlclient.readthedocs.io/user_guide.html#mysqldb",
+      "code":"MySQLdb.connect()",
+      "description":"<additional information you may find necessary to provide>"
     }
   ]
 }
