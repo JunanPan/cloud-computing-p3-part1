@@ -11,7 +11,7 @@ import org.bson.conversions.Bson;
 import java.io.IOException;
 
 import static com.mongodb.client.model.Filters.regex;
-
+import com.mongodb.client.model.Filters;
 
 public class MongoDBTasks {
     /**
@@ -148,8 +148,19 @@ public class MongoDBTasks {
      * list and/or return type.
      */
     private static void q9() throws IOException {
-        throw new UnsupportedOperationException(
-                "Waiting to be implemented");
+        
+        Bson neighborhoodCondition = regex("neighborhood", "Shadyside");
+        Bson categoriesCondition = regex("categories", "Asian Fusion");
+        Bson wifiCondition = regex("attributes.WiFi", "\"free\"");
+        Bson bikeParkingCondition = regex("attributes.BikeParking", "true");
+
+        Bson query = Filters.and(neighborhoodCondition, categoriesCondition, wifiCondition, bikeParkingCondition);
+
+        // Execute the query and print results
+        mongoCollection.find(query).forEach(document -> {
+            System.out.println(document.getString("name"));
+    });
+        
     }
 
     /**
