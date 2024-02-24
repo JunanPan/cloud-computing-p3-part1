@@ -158,7 +158,7 @@ public class MongoDBTasks {
         Bson wifiCondition = regex("attributes", ".*'WiFi':\\s*'free'.*");
         Bson bikeParkingCondition = regex("attributes", ".*'BikeParking':\\s*True.*");
 
-        Bson query = Filters.and(neighborhoodCondition, categoriesCondition, wifiCondition, bikeParkingCondition);//, wifiCondition);//, bikeParkingCondition);
+        Bson query = Filters.and(neighborhoodCondition, categoriesCondition, wifiCondition, bikeParkingCondition);
 
         // Execute the query and print results
         FindIterable<Document> iterable = mongoCollection.find(query);
@@ -203,8 +203,27 @@ public class MongoDBTasks {
      * list and/or return type.
      */
     private static void q10() throws IOException {
-        throw new UnsupportedOperationException(
-                "Waiting to be implemented");
+        Bson nameCondition = regex("name", "India");
+        Bson neighborhoodCondition = regex("neighborhood", "Downtown|Oakland");
+        Bson cityCondition = regex("city", "Pittsburgh");
+        Bson hoursCondition = regex("hours", ".*'Friday':\\s*'17:00-.*");
+        Bson deliveryCondition = regex("attributes", ".*'RestaurantsDelivery':\\s*True.*");
+
+        Bson query = Filters.and(nameCondition, neighborhoodCondition, cityCondition, hoursCondition, deliveryCondition);
+
+        // Execute the query and print results
+        FindIterable<Document> iterable = mongoCollection.find(query);
+        // sort 
+        iterable.sort(new Document("name", 1));
+        MongoCursor<Document> cursor = iterable.iterator();
+        try {
+            while (cursor.hasNext()) {
+                Document document = cursor.next();
+                System.out.println(document.getString("name"));
+            }
+        } finally {
+            cursor.close();
+        }
     }
 
     /**
@@ -217,8 +236,21 @@ public class MongoDBTasks {
      * list and/or return type.
      */
     private static void q11() throws IOException {
-        throw new UnsupportedOperationException(
-                "Waiting to be implemented");
+        Bson businessIdCondition = eq("business_id", "I1vE5o98Wy5pCULJoEclqw");
+
+        Bson query = Filters.and(businessIdCondition);
+
+        // Execute the query and print results
+        FindIterable<Document> iterable = mongoCollection.find(query);
+        MongoCursor<Document> cursor = iterable.iterator();
+        try {
+            while (cursor.hasNext()) {
+                Document document = cursor.next();
+                System.out.println(document.getString("name"));
+            }
+        } finally {
+            cursor.close();
+        }
     }
 
     /**
@@ -235,7 +267,8 @@ public class MongoDBTasks {
      * list and/or return type.
      */
     private static void q12() throws Throwable {
-        throw new UnsupportedOperationException(
-                "Waiting to be implemented");
+        Bson query = new Document();
+        long count = mongoCollection.countDocuments(query);
+        System.out.println(count);
     }
 }

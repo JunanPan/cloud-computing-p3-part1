@@ -8,9 +8,15 @@
       "description":"<additional information you may find necessary to provide>"
     },
     {
-      "title":"MySQLdb User’s Guide",
+      "title":"MySQLdb User's Guide",
       "url":"https://mysqlclient.readthedocs.io/user_guide.html#mysqldb",
       "code":"MySQLdb.connect()",
+      "description":"<additional information you may find necessary to provide>"
+    },
+    {
+      "title":"db.collection.countDocuments()",
+      "url":"https://www.mongodb.com/docs/manual/reference/method/db.collection.countDocuments/",
+      "code":"long count = mongoCollection.countDocuments(query);",
       "description":"<additional information you may find necessary to provide>"
     }
   ]

@@ -251,8 +251,10 @@ public class MySQLTasks {
      * You are only allowed to edit the sql.
      */
     private static void q5() {
-        String sql = "SELECT name FROM businesses WHERE neighborhood = 'South Side' AND BINARY name LIKE '%Coast%' AND business_id NOT IN (SELECT DISTINCT business_id FROM checkins)"; 
-        //First select the name of the business from the businesses table where the neighborhood is South Side and the name contains Coast and the business_id is not in the checkins table
+        String sql = "SELECT name FROM businesses WHERE neighborhood = 'South Side' AND "  
+           + "BINARY name LIKE '%Coast%' AND business_id NOT IN (SELECT DISTINCT business_id FROM checkins)"; 
+        //First select the name of the business from the businesses table where the neighborhood is South Side 
+        //and the name contains Coast and the business_id is not in the checkins table
         executeDataManipulationQuery(sql);
     }
 
@@ -269,8 +271,11 @@ public class MySQLTasks {
      * You are only allowed to edit the sql.
      */
     private static void q6() {
-        String sql = "SELECT user_id FROM reviews WHERE user_id IN (SELECT user_id FROM tips) AND cool = (SELECT MAX(cool) FROM reviews WHERE user_id IN (SELECT user_id FROM tips))";
-        // First select the user_id from the reviews table where the user_id is in the tips table and the cool is the maximum cool from the reviews table where the user_id is in the tips table
+        String sql = "SELECT user_id FROM reviews WHERE user_id IN (SELECT user_id FROM tips) "
+           + "AND cool = (SELECT MAX(cool) FROM reviews WHERE user_id IN (SELECT user_id FROM tips))";
+
+        // First select the user_id from the reviews table where the user_id is in the tips table 
+        // and the cool is the maximum cool from the reviews table where the user_id is in the tips table
         executeDataManipulationQuery(sql);
     }
 
@@ -283,8 +288,10 @@ public class MySQLTasks {
      * You are only allowed to edit the sql.
      */
     private static void q7() {
-        String sql = "SELECT city FROM businesses GROUP BY city ORDER BY AVG(stars) DESC, city ASC LIMIT 3";
-        // Select the city from the businesses table and group by the city and order by the average stars in descending order and the city in ascending order and limit the result to 3
+        String sql = "SELECT city FROM businesses GROUP BY city ORDER BY AVG(stars) DESC,"
+        + " city ASC LIMIT 3";
+        // Select the city from the businesses table and group by the city and order by the average stars 
+        // in descending order and the city in ascending order and limit the result to 3
         executeDataManipulationQuery(sql);
     }
 

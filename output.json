@@ -1,0 +1,14 @@
+{
+ "q1":"count,174567.00,174567.00\nmean,30.14,3.63\nstd,98.21,1.00\nmin,3.00,1.00\n25%,4.00,3.00\n50%,8.00,3.50\n75%,23.00,4.50\nmax,7361.00,5.00",
+ "q2":"2wmVKjnO7PM5s8-wVuj80w\nYTu0c-1I9ECeksIgoHXFPA\n288314",
+ "q3":"cool",
+ "q4":"2wmVKjnO7PM5s8-wVuj80w\nYTu0c-1I9ECeksIgoHXFPA\n2",
+ "q5":"East Coast Tanning",
+ "q6":"Hm0diOkWwpo9zotlJlqMUQ",
+ "q7":"110 Las Vegas\nAhwahtukee\nAhwatukee Foothills Village",
+ "q8":"{\"neighborhood\":\"Downtown\",\"business_id\":\"JLbgvGM4FXh9zNP4O5ZWjQ\",\"hours\":\"{'Monday': '17:00-23:00', 'Tuesday': '17:00-23:00', 'Friday': '17:00-0:00', 'Wednesday': '11:30-14:00', 'Thursday': '11:30-14:00', 'Sunday': '17:00-22:00', 'Saturday': '10:30-14:00'}\",\"open\":true,\"address\":\"649 Penn Ave\",\"attributes\":\"{'GoodForMeal': {'dessert': False, 'latenight': False, 'lunch': False, 'dinner': True, 'brunch': False, 'breakfast': False}, 'Alcohol': 'full_bar', 'Caters': False, 'HasTV': False, 'GoodForKids': False, 'NoiseLevel': 'average', 'WiFi': 'free', 'RestaurantsAttire': 'casual', 'RestaurantsReservations': True, 'OutdoorSeating': True, 'BusinessAcceptsCreditCards': True, 'RestaurantsPriceRange2': 3, 'BikeParking': True, 'RestaurantsTableService': True, 'RestaurantsDelivery': False, 'Ambience': {'romantic': False, 'intimate': False, 'classy': False, 'hipster': False, 'divey': False, 'touristy': False, 'trendy': True, 'upscale': False, 'casual': False}, 'RestaurantsTakeOut': True, 'RestaurantsGoodForGroups': True, 'WheelchairAccessible': True, 'BusinessParking': {'garage': True, 'street': True, 'validated': False, 'lot': False, 'valet': False}}\",\"categories\":\"['Specialty Food', 'Steakhouses', 'Meat Shops', 'American (New)', 'Gastropubs', 'Restaurants', 'Food']\",\"city\":\"Pittsburgh\",\"review_count\":1476,\"name\":\"Meat & Potatoes\",\"longitude\":\"-80.00\",\"state\":\"PA\",\"stars\":4.0,\"latitude\":\"40.44\",\"postal_code\":\"15222\"}",
+ "q9":"Soba",
+ "q10":"India Garden\nIndia Palace Cuisine",
+ "q11":"Love Cloud",
+ "q12":"174567"
+}

@@ -1,5 +1,6 @@
 package edu.cmu.cs.cloud;
 
+import org.apache.commons.lang.ObjectUtils.Null;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -103,31 +104,47 @@ class RedisTest {
 
     @Test
     void hset() {
-        throw new RuntimeException("add test cases on your own");
+        Redis redisClient = new Redis();
+        assertEquals(1, redisClient.hset("key1", "field1", "value1"));
+        assertEquals(0, redisClient.hset("key1", "field1", "value1"));
     }
 
     @Test
     void hget() {
-        throw new RuntimeException("add test cases on your own");
+        Redis redisClient = new Redis();
+        assertEquals(null, redisClient.hget("key1", "field1"));
+        redisClient.hset("key1", "field1", "value1");
+        assertEquals("value1", redisClient.hget("key1", "field1"));
     }
 
     @Test
     void hgetall() {
-        throw new RuntimeException("add test cases on your own");
+        Redis redisClient = new Redis();
+        assertEquals(0, redisClient.hgetall("key1").size());
+        redisClient.hset("key1", "field1", "value1");
+        redisClient.hset("key1", "field2", "value2");
+        assertEquals(4, redisClient.hgetall("key1").size());
     }
 
     @Test
     void llen() {
-        throw new RuntimeException("add test cases on your own");
+        Redis redisClient = new Redis();
+        assertEquals(0, redisClient.llen("key1"));
+        redisClient.rpush("key1", "value1", "value2");
+        assertEquals(2, redisClient.llen("key1"));
     }
 
     @Test
     void rpush() {
-        throw new RuntimeException("add test cases on your own");
+        Redis redisClient = new Redis();
+        assertEquals(2, redisClient.rpush("key1", "value1", "value2"));
     }
 
     @Test
     void rpop() {
-        throw new RuntimeException("add test cases on your own");
+        Redis redisClient = new Redis();
+        assertEquals(null, redisClient.rpop("key1"));
+        redisClient.rpush("key1", "value1", "value2");
+        assertEquals("value2", redisClient.rpop("key1"));
     }
 }
