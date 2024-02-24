@@ -2,7 +2,9 @@ package edu.cmu.cs.cloud;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -10,8 +12,10 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 import java.io.IOException;
 
+import static com.mongodb.client.model.Filters.eq;
 import static com.mongodb.client.model.Filters.regex;
 import com.mongodb.client.model.Filters;
+
 
 public class MongoDBTasks {
     /**
@@ -151,16 +155,22 @@ public class MongoDBTasks {
         
         Bson neighborhoodCondition = regex("neighborhood", "Shadyside");
         Bson categoriesCondition = regex("categories", "Asian Fusion");
-        Bson wifiCondition = regex("attributes.WiFi", "\"free\"");
-        Bson bikeParkingCondition = regex("attributes.BikeParking", "true");
+        Bson wifiCondition = regex("attributes", ".*'WiFi':\\s*'free'.*");
+        Bson bikeParkingCondition = regex("attributes", ".*'BikeParking':\\s*True.*");
 
-        Bson query = Filters.and(neighborhoodCondition, categoriesCondition, wifiCondition, bikeParkingCondition);
+        Bson query = Filters.and(neighborhoodCondition, categoriesCondition, wifiCondition, bikeParkingCondition);//, wifiCondition);//, bikeParkingCondition);
 
         // Execute the query and print results
-        mongoCollection.find(query).forEach(document -> {
-            System.out.println(document.getString("name"));
-    });
-        
+        FindIterable<Document> iterable = mongoCollection.find(query);
+            MongoCursor<Document> cursor = iterable.iterator();
+            try {
+                while (cursor.hasNext()) {
+                    Document document = cursor.next();
+                    System.out.println(document.getString("name"));
+                }
+            } finally {
+                cursor.close();
+            }
     }
 
     /**
