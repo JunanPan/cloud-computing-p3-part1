@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import org.junit.jupiter.api.BeforeEach;
+
 
 /**
  * Usage:
@@ -31,6 +33,10 @@ class RedisTest {
      *                                is enforcing Java language access control
      *                                and the underlying field is either inaccessible or final.
      */
+    @BeforeEach
+    void setUp() {
+        Redis redisClient = new Redis();
+    }
     @Test
     void type() throws NoSuchFieldException, IllegalAccessException {
         Redis redisClient = new Redis();
@@ -138,6 +144,7 @@ class RedisTest {
     void rpush() {
         Redis redisClient = new Redis();
         assertEquals(2, redisClient.rpush("key1", "value1", "value2"));
+        assertEquals(3, redisClient.rpush("key1", "value3"));
     }
 
     @Test
