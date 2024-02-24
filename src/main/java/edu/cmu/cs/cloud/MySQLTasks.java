@@ -251,7 +251,7 @@ public class MySQLTasks {
      * You are only allowed to edit the sql.
      */
     private static void q5() {
-        String sql = "SELECT name FROM businesses WHERE neighborhood = 'South Side' AND name LIKE '%Coast%' AND business_id NOT IN (SELECT DISTINCT business_id FROM checkins)"; 
+        String sql = "SELECT name FROM businesses WHERE neighborhood = 'South Side' AND BINARY name LIKE '%Coast%' AND business_id NOT IN (SELECT DISTINCT business_id FROM checkins)"; 
         //First select the name of the business from the businesses table where the neighborhood is South Side and the name contains Coast and the business_id is not in the checkins table
         executeDataManipulationQuery(sql);
     }
